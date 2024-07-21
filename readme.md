@@ -23,3 +23,5 @@ To create a single-page application, we can leverage Ajax instead of frameworks.
 3. **Run `index.html` in Live Server.**
 
 There you go. Cheers!
+
+You can view the live application [here](https://mzubairhassan18.github.io/healthcaredashboard/).

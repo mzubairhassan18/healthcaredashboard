@@ -177,14 +177,14 @@ $(document).ready(function () {
         ) {
           $(".systolic-level")
             .next("img")
-            .attr("src", "/assets/ArrowUp.svg")
+            .attr("src", "assets/ArrowUp.svg")
             .show();
         } else if (
           systolicEntry.blood_pressure.systolic.levels === "Lower than Average"
         ) {
           $(".systolic-level")
             .next("img")
-            .attr("src", "/assets/ArrowDown.svg")
+            .attr("src", "assets/ArrowDown.svg")
             .show();
         } else {
           $(".systolic-level").next("img").hide();
@@ -199,7 +199,7 @@ $(document).ready(function () {
         ) {
           $(".diastolic-level")
             .next("img")
-            .attr("src", "/assets/ArrowUp.svg")
+            .attr("src", "assets/ArrowUp.svg")
             .show();
         } else if (
           diastolicEntry.blood_pressure.diastolic.levels ===
@@ -207,7 +207,7 @@ $(document).ready(function () {
         ) {
           $(".diastolic-level")
             .next("img")
-            .attr("src", "/assets/ArrowDown.svg")
+            .attr("src", "assets/ArrowDown.svg")
             .show();
         } else {
           $(".diastolic-level").next("img").hide();
@@ -227,12 +227,12 @@ $(document).ready(function () {
         if ($(".rrate-level").text() === "Higher than Average") {
           $(".rrate-level")
             .next("img")
-            .attr("src", "/assets/ArrowUp.svg")
+            .attr("src", "assets/ArrowUp.svg")
             .show();
         } else if ($(".rrate-level").text() === "Lower than Average") {
           $(".rrate-level")
             .next("img")
-            .attr("src", "/assets/ArrowDown.svg")
+            .attr("src", "assets/ArrowDown.svg")
             .show();
         } else {
           $(".rrate-level").next("img").hide();
@@ -247,14 +247,11 @@ $(document).ready(function () {
         $(".temp-value").text(`${avgTemperature}°F`);
         $(".temp-level").text(patient.diagnosis_history[0].temperature.levels);
         if ($(".temp-level").text() === "Higher than Average") {
-          $(".temp-level")
-            .next("img")
-            .attr("src", "/assets/ArrowUp.svg")
-            .show();
+          $(".temp-level").next("img").attr("src", "assets/ArrowUp.svg").show();
         } else if ($(".temp-level").text() === "Lower than Average") {
           $(".temp-level")
             .next("img")
-            .attr("src", "/assets/ArrowDown.svg")
+            .attr("src", "assets/ArrowDown.svg")
             .show();
         } else {
           $(".temp-level").next("img").hide();
@@ -269,12 +266,9 @@ $(document).ready(function () {
         $(".hr-value").text(`${avgHeartRate} bpm`);
         $(".hr-level").text(patient.diagnosis_history[0].heart_rate.levels);
         if ($(".hr-level").text() === "Higher than Average") {
-          $(".hr-level").next("img").attr("src", "/assets/ArrowUp.svg").show();
+          $(".hr-level").next("img").attr("src", "assets/ArrowUp.svg").show();
         } else if ($(".hr-level").text() === "Lower than Average") {
-          $(".hr-level")
-            .next("img")
-            .attr("src", "/assets/ArrowDown.svg")
-            .show();
+          $(".hr-level").next("img").attr("src", "assets/ArrowDown.svg").show();
         } else {
           $(".hr-level").next("img").hide();
         }
@@ -306,7 +300,7 @@ $(document).ready(function () {
               </div>
             </div>
             <img
-              src="/assets/more_horiz_FILL0_wght300_GRAD0_opsz24.svg"
+              src="assets/more_horiz_FILL0_wght300_GRAD0_opsz24.svg"
               alt="Menu"
               height="20"
             />
