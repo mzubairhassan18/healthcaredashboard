@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .patient-list {
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+      }
+      .diagnosis-list tbody,
+      .lab-results-details {
+        max-height: 200px;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="left">
+          <img src="/assets/TestLogo.svg" alt="Logo" height="40" />
+        </div>
+        <div class="middle">
+          <button>
+            <img src="/assets/home_FILL0_wght300_GRAD0_opsz24.svg" /><label
+              >Overview</label
+            >
+          </button>
+          <button class="active">
+            <img src="/assets/group_FILL0_wght300_GRAD0_opsz24.svg" /><label
+              >Patients</label
+            >
+          </button>
+          <button>
+            <img
+              src="/assets/calendar_today_FILL0_wght300_GRAD0_opsz24.svg"
+            /><label>Schedule</label>
+          </button>
+          <button>
+            <img
+              src="/assets/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg"
+            /><label>Message</label>
+          </button>
+          <button>
+            <img
+              src="/assets/credit_card_FILL0_wght300_GRAD0_opsz24.svg"
+            /><label>Transactions</label>
+          </button>
+        </div>
+        <div class="right">
+          <div class="user-info">
+            <img
+              src="/assets/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png"
+              alt="User"
+              height="40"
+            />
+            <div>
+              <span class="username">Username</span>
+              <span class="designation">User Designation</span>
+            </div>
+          </div>
+          <div class="seperator"></div>
+          <div class="settings">
+            <img
+              src="/assets/settings_FILL0_wght300_GRAD0_opsz24.svg"
+              alt="Settings"
+              height="20"
+            />
+            <img
+              src="/assets/more_vert_FILL0_wght300_GRAD0_opsz24.svg"
+              alt="more"
+              height="20"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="row">
+            <label>Patients</label>
+            <img
+              src="/assets/search_FILL0_wght300_GRAD0_opsz24.svg"
+              alt="search"
+            />
+          </div>
+          <ul class="patient-list"></ul>
+        </div>
+        <div class="middle">
+          <div class="middle-first">
+            <h2>Diagnosis History</h2>
+            <div class="graph-section">
+              <div class="graph">
+                <div class="graph-header">
+                  <span class="graph-name">Blood Pressure</span>
+                  <div>
+                    <span>Last 6 months</span
+                    ><img
+                      src="/assets/expand_more_FILL0_wght300_GRAD0_opsz24.svg"
+                      width="11"
+                      height="6"
+                    />
+                  </div>
+                </div>
+                <div class="line-graph" id="diagnosisHistoryChart"></div>
+              </div>
+              <div class="graph-details">
+                <div class="details-section">
+                  <div class="top">
+                    <span class="round-circle"></span><label>Systolic</label>
+                  </div>
+                  <div class="value systolic-max"></div>
+                  <div class="bottom">
+                    <img src="/assets/ArrowUp.svg" /><label
+                      class="systolic-level"
+                    ></label>
+                  </div>
+                </div>
+                <div class="divider"></div>
+                <div class="details-section">
+                  <div class="top">
+                    <span class="round-circle diastolic"></span
+                    ><label>Diastolic</label>
+                  </div>
+                  <div class="value diastolic-max"></div>
+                  <div class="bottom">
+                    <img src="/assets/ArrowUp.svg" /><label
+                      class="diastolic-level"
+                    ></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="three-containers">
+              <div class="round-container rrate">
+                <div class="icon">
+                  <img src="/assets/respiratory rate.svg" />
+                </div>
+                <div class="inside-labels">
+                  <label class="desc-label">Respiratory Rate</label>
+                  <label class="header-label rrate-value"></label>
+                </div>
+                <div class="level-container" style="display: flex; gap: 2px">
+                  <span class="rrate-level"></span>
+                  <img
+                    src=""
+                    alt="Respiratory Rate Level Arrow"
+                    style="display: none"
+                  />
+                </div>
+              </div>
+              <div class="round-container temperature">
+                <div class="icon">
+                  <img src="/assets/temperature.svg" />
+                </div>
+                <div class="inside-labels">
+                  <label class="desc-label">Temperature</label>
+                  <label class="header-label temp-value"></label>
+                </div>
+                <div class="level-container" style="display: flex; gap: 2px">
+                  <span class="temp-level"></span>
+                  <img
+                    src=""
+                    alt="Temperature Level Arrow"
+                    style="display: none"
+                  />
+                </div>
+              </div>
+              <div class="round-container heartbpm">
+                <div class="icon">
+                  <img src="/assets/HeartBPM.svg" />
+                </div>
+                <div class="inside-labels">
+                  <label class="desc-label">Heart Rate</label>
+                  <label class="header-label hr-value"></label>
+                </div>
+                <div class="level-container" style="display: flex; gap: 2px">
+                  <span class="hr-level"></span>
+                  <img
+                    src=""
+                    alt="Heart Rate Level Arrow"
+                    style="display: none"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="diagnosis-list">
+            <h3>Diagnostic List</h3>
+            <table>
+              <thead>
+                <tr class="tr-header">
+                  <th class="th-left">Problem/Diagnostic</th>
+                  <th>Description</th>
+                  <th class="th-right">Status</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="right">
+          <div class="patient-info">
+            <div class="patient-profile">
+              <img
+                src="/assets/Layer 2.png"
+                alt="Patient"
+                height="80"
+                class="profile-picture"
+              />
+              <h3 class="patient-name"></h3>
+            </div>
+            <div class="patient-details-items">
+              <div class="item">
+                <img src="/assets/BirthIcon.svg" alt="Icon" height="20" />
+                <div>
+                  <span class="label">Date Of Birth</span>
+                  <span class="value dob-value"></span>
+                </div>
+              </div>
+              <div class="item">
+                <img src="/assets/FemaleIcon.svg" alt="Icon" height="20" />
+                <div>
+                  <span class="label">Gender</span>
+                  <span class="value gender-value"></span>
+                </div>
+              </div>
+              <div class="item">
+                <img src="/assets/PhoneIcon.svg" alt="Icon" height="20" />
+                <div>
+                  <span class="label">Contact Info</span>
+                  <span class="value contact-value"></span>
+                </div>
+              </div>
+              <div class="item">
+                <img src="/assets/PhoneIcon.svg" alt="Icon" height="20" />
+                <div>
+                  <span class="label">Emergency Contacts</span>
+                  <span class="value emergency-contact-value"></span>
+                </div>
+              </div>
+              <div class="item">
+                <img src="/assets/InsuranceIcon.svg" alt="Icon" height="20" />
+                <div>
+                  <span class="label">Insurance Provider</span>
+                  <span class="value insurance-value"></span>
+                </div>
+              </div>
+            </div>
+            <button class="show-info-btn">Show All Information</button>
+          </div>
+
+          <div class="lab-results">
+            <h3>Lab Results</h3>
+            <div class="lab-results-details"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
